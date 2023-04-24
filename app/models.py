@@ -7,6 +7,10 @@ class Artist(models.Model):
     last_name = models.CharField(max_length=200, verbose_name='Last Name')
     # avatar = models.ImageField()
     
+    def __str__(self):
+        return self.first_name + ' ' + self.last_name
+    
+    
 class PublicEvent(models.Model):
     title = models.CharField(max_length=200, db_index=True)
     date = models.DateField()
@@ -140,3 +144,15 @@ class ArtworkOrderItem(models.Model):
         
     def __str__(self):
         return self.order.user.username +' : '+ self.item.title
+    
+class Client(models.Models):
+    first_name = models.CharField(max_length=200, verbose_name='First name')
+    last_name = models.CharField(max_length=200, verbose_name='Last Name')
+    username= models.CharField(max_length=200, verbose_name='Username')
+    email = models.EmailField(verbose_name="Email")
+    contact = models.CharField(max_length=200, verbose_name='Phone Number')
+    password = models.CharField(max_length=200, verbose_name='Password')
+    confirm_password = models.CharField(max_length=200, verbose_name='Confirm Password')
+    
+    def __str__(self):
+        return self.username
