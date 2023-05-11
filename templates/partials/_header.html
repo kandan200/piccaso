@@ -1,0 +1,16 @@
+{% load static %}
+<header>
+  <img src="{% static 'img/logo.png' %}" />
+</header>
+<nav>
+  <ul>
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'about' %}">About</a></li>
+    <li><a href="{% url 'past-events' %}">Gallery</a></li>
+    <li><a href="{% url 'book' %}">Book</a></li>
+    <li><a href="{% url 'artworks-list' %}">Artworks</a></li>
+    <li>
+      <a href="{% url 'cart' %}"><button type="submit">Cart</button></a>
+    </li>
+  </ul>
+</nav>

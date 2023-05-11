@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section>
+  <div>
+    <h3>Page is under construction</h3>
+    <h5>click the button below to return to home page</h5>
+  </div>
+  <div>
+    <form action="{% url 'home' %}" method="get">
+      {% csrf_token %}
+      <input type="'submit" value="Go back to Home" />
+    </form>
+  </div>
+</section>
+{% endblock %}

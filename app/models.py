@@ -16,7 +16,6 @@ class PublicEvent(models.Model):
     date = models.DateField()
     venue = models.CharField(max_length=500)
     price = models.DecimalField(max_digits=8, decimal_places=2)
-    # slots = models.IntegerField()
     collaborators = models.ForeignKey(Artist, on_delete=models.DO_NOTHING)
     tags = models.CharField(max_length=200)
     
@@ -29,7 +28,7 @@ class PrivateEvent(models.Model):
     date = models.DateField()
     venue = models.CharField(max_length=500)
     number_of_persons = models.IntegerField(verbose_name='Number of participants')
-    contact = models.CharField(max_length=200, verbose_name='Contact number')
+    contact = models.CharField(max_length=200, verbose_name='Contact number', blank=True)
     email = models.EmailField()
     
     def __str__(self):
@@ -39,7 +38,7 @@ class PrivateEvent(models.Model):
 class EventImage(models.Model):
     title = models.CharField(max_length=200, db_index=True)
     event = models.ForeignKey(PublicEvent, on_delete=models.DO_NOTHING)
-    description = models.CharField(max_length=1000)
+    caption = models.CharField(max_length=1000)
     tags = models.CharField(max_length=200)
     
     def __str__(self):
@@ -77,7 +76,6 @@ class PublicEventCart(models.Model):
 class ArtworkCart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     item = models.ForeignKey(Artwork, on_delete=models.CASCADE)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
     
     class Meta:
         unique_together = ('item','user')
@@ -109,10 +107,7 @@ class Order(models.Model):
 class PrivateEventOrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     event = models.ForeignKey(PrivateEvent, on_delete=models.CASCADE)
-    # quantity = models.SmallIntegerField()
-    # unit_price = models.DecimalField(max_digits=6, decimal_places=2)
-    # price = models.DecimalField(max_digits=6, decimal_places=2)
-    
+
     class Meta:
         unique_together = ('order','event')
         

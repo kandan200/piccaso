@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section>
+  <h4>
+    Welcome to our Gallery section where you can find captured moments from our
+    previous public events. \n
+  </h4>
+  <br />
+  <br />
+
+  {% for item in items %}
+  <article>
+    <img src="{#}" />
+    <h5>Title: {{item.title}}</h5>
+    <h6>Event: {{item.event}}</h6>
+    <p>Tags: {{item.tags}}</p>
+    <p>Caption: {{item.caption}}</p>
+    <form action="{% url 'gallery-item' pk={{item.pk}} %}" method="get">
+      {% csrf_token %}
+      <input type="submit" value="View Image" />
+    </form>
+  </article>
+  {% endfor %}
+</section>
+{% endblock %}

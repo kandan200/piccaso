@@ -42,7 +42,7 @@ class OrderSerializer(serializers.ModelSerializer):
         model = Order
         fields = '__all__'
         
-class ArtworkOrderItemSerializer(serializers.ModelSerializer):
+class ArtworkCartItemSerializer(serializers.ModelSerializer):
     order = OrderSerializer()
     item = ArtworkSerializer()
     
@@ -50,7 +50,7 @@ class ArtworkOrderItemSerializer(serializers.ModelSerializer):
         model = ArtworkOrderItem
         fields = '__all__'
 
-class PublicEventOrderItemSerializer(serializers.ModelSerializer):
+class PublicEventCartItemSerializer(serializers.ModelSerializer):
     order = OrderSerializer()
     event = PublicEventSerializer()
 
@@ -58,7 +58,7 @@ class PublicEventOrderItemSerializer(serializers.ModelSerializer):
         model = PublicEventOrderItem
         fields = '__all__'
 
-class PrivateEventOrderItemSerializer(serializers.ModelSerializer):
+class PrivateEventCartItemSerializer(serializers.ModelSerializer):
     order = OrderSerializer()
     event = PrivateEventSerializer()
 

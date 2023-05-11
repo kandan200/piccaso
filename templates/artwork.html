@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section>
+  <div>
+    <article>
+      <div>
+        <img src="{#}" />
+        <h5>Title: {{artwork.title}}</h5>
+        <h6>Artist: {{artwork.artist}}</h6>
+        <p>Description: {{artwork.description}}</p>
+        <p>Price: {{artwork.price}}</p>
+      </div>
+      <div>
+        <form action="{% url 'artworks-list' %}" method="get">
+          {% csrf_token %}
+          <input type="submit" value="Go back" />
+        </form>
+      </div>
+      {% if item.availability %}
+      <div>
+        <form
+          action="{% url 'add-artwork-to-cart' pk={{artwork.pk}} %}"
+          method="get"
+        >
+          {% csrf_token %}
+          <input type="submit" value="Add to cart" />
+        </form>
+      </div>
+      {% endif %}
+    </article>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section>
+  <h3>Paint 'n' Sip</h3>
+  <p>Edit your event order</p>
+  <form action="{% url 'edit-private-event' pk=pk %}" method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <input type="submit" value="Confirm edit" />
+  </form>
+</section>
+{% endblock %}

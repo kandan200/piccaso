@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section>
+  <h3>Paint 'n' Sip</h3>
+  <p>Fill out the form below to book your private session</p>
+  <p>Private sessions cost 15,000 per person</p>
+  <form action="{% url 'book-private-event' %}" method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <input type="submit" value="Add to cart" />
+  </form>
+</section>
+{% endblock %}

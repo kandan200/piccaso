@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section>
+  <h3>Piccaso \n Paint 'n' Sip Summer Dip</h3>
+  <h5>Date:</h5>
+  <h5>Time:</h5>
+  <h5>Venue:</h5>
+  <p>Fill out the form below to book your private session</p>
+  <form action="{% url 'book-public-event' %}" method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <input type="submit" value="Proceed to checkout" />
+  </form>
+</section>
+{% endblock %}

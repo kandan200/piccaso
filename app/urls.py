@@ -3,9 +3,11 @@ from . import views
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
-router.register(r'artwork-orders', views.ArtworkOrdersViewset)
-router.register(r'public-event-orders', views.PublicEventOrdersViewset)
-router.register(r'private-event-orders', views.PrivateEventOrdersViewset)
+# router.register(r'artwork-orders', views.ArtworkOrdersViewset)
+# router.register(r'public-event-orders', views.PublicEventOrdersViewset)
+# router.register(r'private-event-orders', views.PrivateEventOrdersViewset)
+router.register(r'orders', views.OrderView, basename='orders')
+
 
 
 urlpatterns =[
@@ -21,9 +23,13 @@ urlpatterns =[
     path('past-events/', views.past_events_view, name='past-events'),
     path('event-gallery/<int:pk>/', views.event_gallery_view, name='event-gallery'),
     #url mapping for a view to display each item in an event gallery
-    path('artists-list/', views.artists_list, name='artist-list'),
-    path('artist/<int:pk>/', views.artist_view, name='artist'),
-    path('artist-artworks/<int:pk1>/<int:pk2>/', views.artist_artwork_view, name='artist-artwork'),
+    path('artworks-list/', views.artwork_list_view, name='artworks-list'),
+    path('artwork-to-cart/', views.add_artwork_to_cart, name='add-artwork-to-cart'),
+    path('cart/', views.cart, name='cart'),
+    path('edit-private-event-order-item/<int:pk>/', views.edit_private_event_order, name='edit-private-event-order'),
+    path('edit-public-event-order-item/<int:pk>/', views.edit_public_event_order, name='edit-public-event-order'),
+    path('edit-artwork-order-item/<int:pk>/', views.edit_artwork_order_item, name="edit-artwork-order-item"),
+    path('payment/<int:pk>/', views.payment_view, name='payment-view'),
 ]
 
 urlpatterns += router.urls

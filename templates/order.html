@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section>
+  <div>
+    <h3>Order Summary</h3>
+    <h5>You ordered a total of: {{count}} items</h5>
+    <br />
+    <br />
+    <h5>Total price: {{order.total}}</h5>
+  </div>
+  <div>
+    <form action="{% url 'payment' pk=order.pk %}" method="get">
+      {% csrf_token %}
+      <input type="'submit" value="Proceed to payment" />
+    </form>
+  </div>
+</section>
+{% endblock %}

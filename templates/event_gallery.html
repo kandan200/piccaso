@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section>
+  <h4>{{event.title}}</h4>
+  <h5>{{event.date}}</h5>
+  <h5>{{event.venue}}</h5>
+  <h5>{{event.tags}}</h5>
+
+  {% for image in images %}
+  <article>
+    <img src="{#}" />
+    <h5>Title: {{item.title}}</h5>
+    <p>Caption: {{item.caption}}</p>
+    <form action="{% url 'gallery-item' pk={{image.pk}} %}" method="get">
+      {% csrf_token %}
+      <input type="submit" value="View Image" />
+    </form>
+  </article>
+  {% endfor %}
+</section>
+{% endblock %}

@@ -1,5 +1,5 @@
 from django import forms
-from . models import PublicEventCart, PrivateEventCart, ArtworkCart, PrivateEvent, Client
+from . models import PublicEventCart, PrivateEvent, Client, Artwork
 
 class SignUpForm(forms.ModelForm):
     class Meta:
@@ -15,9 +15,14 @@ class PublicEventBookingForm(forms.ModelForm):
     class Meta:
         model = PublicEventCart
         fields = '__all__'
-        
-        
+               
 class PrivateEventBookingForm(forms.ModelForm):
     class Meta:
         model = PrivateEvent
         fields = '__all__'
+        
+class EditPublicEventOrderItemForm(forms.ModelForm):
+    class Meta:
+        model = PublicEventCart
+        fields = '__all__'
+        

@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section>
+  <div>
+    <h4>
+      Welcome to our Artworks section. \n Here are select pieces from our
+      collaborators
+    </h4>
+    <br />
+    <br />
+  </div>
+  <div>
+    {% for item in artworks %}
+    <article>
+      <div>
+        <img src="{#}" />
+        <h5>Title: {{item.title}}</h5>
+        <h6>Artist: {{item.artist}}</h6>
+        <p>Description: {{item.description}}</p>
+        <p>Price: {{item.price}}</p>
+      </div>
+      <div>
+        <form action="{% url 'artwork-view' pk={{item.pk}} %}" method="get">
+          {% csrf_token %}
+          <input type="submit" value="View Artwork" />
+        </form>
+      </div>
+      {% if item.availability %}
+      <div>
+        <form
+          action="{% url 'add-artwork-to-cart' pk={{item.pk}} %}"
+          method="get"
+        >
+          {% csrf_token %}
+          <input type="submit" value="Add to cart" />
+        </form>
+      </div>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

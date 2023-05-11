@@ -1,0 +1,76 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section>
+  <h3>You have the following {{count}} items in your cart</h3>
+  <section>
+    {% for event in private_events_cart %}
+    <article>
+      <p>Date: {{event.event.date}}</p>
+      <p>Participants: {{event.event.number_of_persons}}</p>
+      <p>Price: {{event.event.number_of_persons *15000}}</p>
+      <form
+        action="{% url 'edit-private-event-order' pk=event.pk %}"
+        method="get"
+      >
+        {% csrf_token %}
+        <input type="submit" value="Edit order item" />
+      </form>
+      <form
+        action="{% url 'edit-private-event-order' pk=event.pk %}"
+        method="delete"
+      >
+        {% csrf_token %}
+        <input type="submit" value="Remove order item" />
+      </form>
+    </article>
+    {% endfor %}
+  </section>
+
+  <section>
+    {% for event in public_events_cart %}
+    <article>
+      <p>Title: {{event.event.title}}</p>
+      <p>Date: {{event.event.date}}</p>
+      <p>Participants: {{event.number_of_tickets}}</p>
+      <p>Price: {{event.number_of_tickets * event.event.price}}</p>
+      <form
+        action="{% url 'edit-public-event-order' pk=event.pk %}"
+        method="get"
+      >
+        {% csrf_token %}
+        <input type="submit" value="Edit order item" />
+      </form>
+      <form
+        action="{% url 'edit-public-event-order' pk=event.pk %}"
+        method="delete"
+      >
+        {% csrf_token %}
+        <input type="submit" value="Remove order item" />
+      </form>
+    </article>
+    {% endfor %}
+  </section>
+
+  <section>
+    {% for item in artworks %}
+    <article>
+      <p>Title: {{item.item.title}}</p>
+      <p>Artist: {{item.item.artist}}</p>
+      <p>Price: {{item.item.price}}</p>
+      <form
+        action="{% url 'edit-artwork-order-item' pk=item.pk %}"
+        method="delete"
+      >
+        {% csrf_token %}
+        <input type="submit" value="Remove order item" />
+      </form>
+    </article>
+    {% endfor %}
+  </section>
+</section>
+<section>
+  <form action="{% url 'order' %}" method="get">
+    {% csrf_token %}
+    <input type="submit" value="Place Order" />
+  </form>
+</section>
+{% endblock %}

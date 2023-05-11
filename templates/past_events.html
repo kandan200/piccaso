@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section>
+  <h4>
+    Over the years we have hosted some remarkbale sessions with our Piccasos
+  </h4>
+  <h6>Click on an event for its gallery</h6>
+  {% for event in events %}
+  <article>
+    <img src="{#}" />
+    <h5>Title: {{event.title}}</h5>
+    <h6>Date: {{event.date}}</h6>
+    <p>Tags: {{event.tags}}</p>
+    <form action="{% url 'event-gallery' pk={{event.pk}} %}" method="get">
+      {% csrf_token %}
+      <input type="submit" value="View Event Gallery" />
+    </form>
+  </article>
+  {% endfor %}
+</section>
+{% endblock %}

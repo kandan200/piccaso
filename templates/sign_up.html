@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section>
+  <div>
+    <h3>Set up your account by filling the form below</h3>
+    <form action="{% url 'sign-up' %}" method="post">
+      {% csrf_token %} {{form.as_p}}
+      <input type="submit" value="Create account" />
+    </form>
+  </div>
+  <div>
+    <h4>Already have an account with us?</h4>
+    <form action="{% url 'sign-in' %}" method="get">
+      {% csrf_token %}
+      <input type="submit" value="Log into account" />
+    </form>
+  </div>
+</section>
+{% endblock %}

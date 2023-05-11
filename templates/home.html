@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section>
+  <h1>Welcome to Piccaso</h1>
+  <p>The art community</p>
+
+  <h3>
+    We are so excited about our upcoming event \n Paint 'n' Sip Summer Dip \n
+  </h3>
+  <h5>Date:</h5>
+  <h5>Time:</h5>
+  <h5>Venue:</h5>
+  <form action="{% url 'book-public-event' %}" method="get">
+    {% csrf_token %}
+    <input type="submit" value="Book Event" />
+  </form>
+</section>
+<section>
+  <h3>A slideshow of past events</h3>
+  <form action="{% url 'gallery' %}" method="get">
+    {% csrf_token %}
+    <input type="submit" value="View Gallery" />
+  </form>
+</section>
+<section>
+  <article>
+    <h3>Corporate Events</h3>
+    <form action="{% url 'book-private-event' %}" method="get">
+      {% csrf_token %}
+      <input type="submit" value="Book Event" />
+    </form>
+    <article></article>
+    <h3>Children Events</h3>
+    <form action="{% url 'book-private-event' %}" method="get">
+      {% csrf_token %}
+      <input type="submit" value="Book Event" />
+    </form>
+  </article>
+  <article>
+    <h3>Celebrations</h3>
+    <form action="{% url 'book-private-event' %}" method="get">
+      {% csrf_token %}
+      <input type="submit" value="Book Event" />
+    </form>
+  </article>
+</section>
+{% endblock %}

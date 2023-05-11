@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Piccaso</title>
+    <meta name="description" content="A brief description" />
+    <meta
+      name="author"
+      content="Based in Nigeria, Piccaso is a commnity of young entrepreneurs and profesionals with an underlying interest in the creative arts"
+    />
+
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla&family=Markazi+Text:wght@500&display=swap"
+      rel="stylesheet"
+    /> -->
+  </head>
+
+  <body>
+    <!--Header content-->
+    {% include 'partials/_header.html' %}
+
+    <main>{% block content %} {% endblock %}</main>
+
+    <!--Footer content-->
+    {% include 'partials/_footer.html' %}
+    <!-- Replace this comment with your code  -->
+  </body>
+</html>
