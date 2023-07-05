@@ -10,7 +10,7 @@
     <img src="{#}" />
     <h5>Title: {{item.title}}</h5>
     <p>Caption: {{item.caption}}</p>
-    <form action="{% url 'gallery-item' pk={{image.pk}} %}" method="get">
+    <form action="{% url 'gallery-item' pk=image.pk %}" method="get">
       {% csrf_token %}
       <input type="submit" value="View Image" />
     </form>

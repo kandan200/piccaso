@@ -20,4 +20,12 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app.urls')),
+    path('', include('private_event.urls')),
+    path('', include('public_event.urls')),
+    path('', include('orders.urls')),
+    path('', include('artworks.urls')),
+    path('', include('gallery.urls')),
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.jwt')),
+    path('auth/', include('djoser.urls.authtoken')),
 ]

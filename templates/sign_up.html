@@ -2,7 +2,7 @@
 <section>
   <div>
     <h3>Set up your account by filling the form below</h3>
-    <form action="{% url 'sign-up' %}" method="post">
+    <form action="{% url 'customer-list' %}" method="post">
       {% csrf_token %} {{form.as_p}}
       <input type="submit" value="Create account" />
     </form>

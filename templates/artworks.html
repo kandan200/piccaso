@@ -19,17 +19,14 @@
         <p>Price: {{item.price}}</p>
       </div>
       <div>
-        <form action="{% url 'artwork-view' pk={{item.pk}} %}" method="get">
+        <form action="{% url 'artwork' pk=item.pk %}" method="get">
           {% csrf_token %}
           <input type="submit" value="View Artwork" />
         </form>
       </div>
       {% if item.availability %}
       <div>
-        <form
-          action="{% url 'add-artwork-to-cart' pk={{item.pk}} %}"
-          method="get"
-        >
+        <form action="{% url 'add-artwork-to-cart' pk=item.pk %}" method="get">
           {% csrf_token %}
           <input type="submit" value="Add to cart" />
         </form>

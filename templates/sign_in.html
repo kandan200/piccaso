@@ -1,8 +1,12 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <section>
   <div>
+    {% if message %}
+    <h3>{{message}}</h3>
+    {% endif %}
+  <div>
     <h3>Log in to continue</h3>
-    <form action="{% url 'sign-in' %}" method="post">
+    <form action="{% url 'login' %}" method="post">
       {% csrf_token %} {{form.as_p}}
       <input type="submit" value="Log into account" />
     </form>
@@ -12,6 +16,12 @@
     <form action="{% url 'sign-up' %}" method="get">
       {% csrf_token %}
       <input type="submit" value="Create account" />
+    </form>
+  </div>
+  <div>
+    <form action="{% url 'password-reset' uid=uid token=token %}" method="get">
+      {% csrf_token %}
+      <input type="submit" value="Forgot password?" />
     </form>
   </div>
 </section>

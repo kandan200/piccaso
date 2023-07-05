@@ -3,7 +3,9 @@
   <h3>Paint 'n' Sip</h3>
   <p>Edit your event order</p>
   <form action="{% url 'edit-private-event' pk=pk %}" method="post">
-    {% csrf_token %} {{ form.as_p }}
+    {{ form.non_field_errors }} {% csrf_token %} {% for field in form %}
+    <div>{{ field.errors }} {{ field.label_tag }} {{ field }}</div>
+    {% endfor %}
     <input type="submit" value="Confirm edit" />
   </form>
 </section>

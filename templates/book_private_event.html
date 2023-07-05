@@ -1,10 +1,17 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <section>
+  <div>
+    {% if message %}
+    <h3>{{message}}</h3>
+    {% endif %}
+  </div>
   <h3>Paint 'n' Sip</h3>
   <p>Fill out the form below to book your private session</p>
   <p>Private sessions cost 15,000 per person</p>
   <form action="{% url 'book-private-event' %}" method="post">
-    {% csrf_token %} {{ form.as_p }}
+    {{ form.non_field_errors }} {% csrf_token %} {% for field in form %}
+    <div>{{ field.errors }} {{ field.label_tag }} {{ field }}</div>
+    {% endfor %}
     <input type="submit" value="Add to cart" />
   </form>
 </section>

@@ -10,7 +10,7 @@
     <h5>Title: {{event.title}}</h5>
     <h6>Date: {{event.date}}</h6>
     <p>Tags: {{event.tags}}</p>
-    <form action="{% url 'event-gallery' pk={{event.pk}} %}" method="get">
+    <form action="{% url 'event-gallery' pk=event.pk %}" method="get">
       {% csrf_token %}
       <input type="submit" value="View Event Gallery" />
     </form>

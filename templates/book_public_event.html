@@ -6,7 +6,9 @@
   <h5>Venue:</h5>
   <p>Fill out the form below to book your private session</p>
   <form action="{% url 'book-public-event' %}" method="post">
-    {% csrf_token %} {{ form.as_p }}
+    {{ form.non_field_errors }} {% csrf_token %} {% for field in form %}
+    <div>{{ field.errors }} {{ field.label_tag }} {{ field }}</div>
+    {% endfor %}
     <input type="submit" value="Proceed to checkout" />
   </form>
 </section>

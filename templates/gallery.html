@@ -14,7 +14,7 @@
     <h6>Event: {{item.event}}</h6>
     <p>Tags: {{item.tags}}</p>
     <p>Caption: {{item.caption}}</p>
-    <form action="{% url 'gallery-item' pk={{item.pk}} %}" method="get">
+    <form action="{% url 'gallery-item' pk=item.pk %}" method="get">
       {% csrf_token %}
       <input type="submit" value="View Image" />
     </form>

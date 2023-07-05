@@ -1,6 +1,9 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <section>
   <div>
+    {% if message %}
+    <h3>{{message}}</h3>
+    {% endif %}
     <h3>Log in to continue</h3>
     <h4>Have an account with us?</h4>
     <form action="{% url 'sign-in' %}" method="get">

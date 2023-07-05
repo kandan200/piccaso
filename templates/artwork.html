@@ -18,7 +18,7 @@
       {% if item.availability %}
       <div>
         <form
-          action="{% url 'add-artwork-to-cart' pk={{artwork.pk}} %}"
+          action="{% url 'add-artwork-to-cart' pk=artwork.pk %}"
           method="get"
         >
           {% csrf_token %}

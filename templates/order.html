@@ -8,7 +8,7 @@
     <h5>Total price: {{order.total}}</h5>
   </div>
   <div>
-    <form action="{% url 'payment' pk=order.pk %}" method="get">
+    <form action="{% url 'payment-view' pk=order.pk %}" method="get">
       {% csrf_token %}
       <input type="'submit" value="Proceed to payment" />
     </form>
