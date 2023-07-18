@@ -97,7 +97,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'piccasodb',
         'HOST' : '0.0.0.0',
-        'PORT' : '7000',
+        'PORT' : '3306',
         'USER' : 'bash',
         'PASSWORD' : 'password123',
     }
