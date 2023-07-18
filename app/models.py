@@ -12,7 +12,8 @@ class ClientAccountManager(BaseUserManager):
         user.save()
         return user
 
-class Customer(AbstractBaseUser, PermissionsMixin):
+# class Customer(AbstractBaseUser, PermissionsMixin):
+class Customer(models.Model):
     first_name = models.CharField(max_length=200, verbose_name='First name')
     last_name = models.CharField(max_length=200, verbose_name='Last Name')
     email = models.EmailField(verbose_name="Email", unique=True)
@@ -20,19 +21,19 @@ class Customer(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     
-    objects = ClientAccountManager()
+#     objects = ClientAccountManager()
     
-    USERNAME_FIELD ='email'
-    REQUIRED_FIELDS = ['first_name', 'contact']
+#     USERNAME_FIELD ='email'
+#     REQUIRED_FIELDS = ['first_name', 'contact']
     
-    def get_full_name(self):
-        return self.first_name + "" + self.last_name
+#     def get_full_name(self):
+#         return self.first_name + "" + self.last_name
     
-    def get_short_name(self):
-        return self.first_name
+#     def get_short_name(self):
+#         return self.first_name
     
-    def __str__(self):
-        return self.email
+#     def __str__(self):
+#         return self.email
     
     
 class Artist(models.Model):

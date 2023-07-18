@@ -12,7 +12,6 @@ from django.core.mail import EmailMessage, send_mail
 from project import settings
 from django.contrib.auth import authenticate, login
 import requests
-from .models import Customer
 
 
 # Create your views here.
