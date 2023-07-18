@@ -11,8 +11,7 @@ class ClientAccountManager(BaseUserManager):
         user.set_password(password)
         user.save()
         return user
-    
-    
+
 class Customer(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=200, verbose_name='First name')
     last_name = models.CharField(max_length=200, verbose_name='Last Name')

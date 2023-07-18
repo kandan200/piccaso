@@ -96,8 +96,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'piccasodb',
-        'HOST' : '127.0.0.1',
-        'PORT' : '3306',
+        'HOST' : '0.0.0.0',
+        'PORT' : '7000',
         'USER' : 'bash',
         'PASSWORD' : 'password123',
     }
@@ -202,11 +202,3 @@ DJOSER = {
         'user_delete': 'djoser.serializers.UserDeleteSerializer',
     },
 }
-
-SIMPLE_JWT = {
-   'AUTH_HEADER_TYPES': ('JWT',),
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
-}
-
-AUTH_USER_MODEL = 'app.Customer'
